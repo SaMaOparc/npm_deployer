@@ -1,4 +1,6 @@
 {
+  "name": "deployer2000",
+  "version": "1.0.0",
   "scripts": {
     "start": "node index.js",
     "create": "touch Dockerfile && touch nginx.conf && mkdir .github && mkdir .github/workflows && touch .github/workflows/main.yaml",
