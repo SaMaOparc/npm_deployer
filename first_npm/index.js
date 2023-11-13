@@ -10,5 +10,5 @@ exec('npm install @angular/cli@16.0.3 --save-dev', (error, stdout, stderr) => {
         console.error(`Fehler: ${stderr}`);
         return;
     }
-    console.log(`Paket @angular/cli erfolgreich auf Version 16.0.4 aktualisiert: ${stdout}`);
+    console.log(`Paket @angular/cli erfolgreich geändert: ${stdout}`);
 });
