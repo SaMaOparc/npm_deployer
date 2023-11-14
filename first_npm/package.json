@@ -1,15 +1,13 @@
 {
   "name": "deployer2000",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "scripts": {
     "main": "creator.js",
     "create": "touch Dockerfile && touch nginx.conf && mkdir .github && mkdir .github/workflows && touch .github/workflows/main.yaml",
     "postcreate": "node creator.js && echo '#IMPORTANT!!!! PLEASE CHANGE THE PATH IN STAGE 2 = /app/dist/YOUR_NAME  ' > Dockerfile && echo '       ' >> Dockerfile && echo '# Stage 1' >> Dockerfile && echo 'FROM node:16.14.0 as node' >> Dockerfile  && echo 'WORKDIR /app' >> Dockerfile && echo 'COPY . .' >> Dockerfile && echo 'RUN npm install' >> Dockerfile && echo 'RUN npm run build --prod' >> Dockerfile && echo '# stage 2' >> Dockerfile && echo 'FROM nginx:alpine' >> Dockerfile && echo 'COPY --from=node  /app/dist/demo-login /usr/share/nginx/html' >> Dockerfile && echo 'COPY ./nginx.conf /etc/nginx/conf.d/default.conf' >> Dockerfile && echo \"CMD sed -i -e 's/\\$PORT/$PORT/g' /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'\" >> Dockerfile && echo 'server {' > nginx.conf && echo '  listen $PORT;' >> nginx.conf && echo '  location / {' >> nginx.conf && echo '    root   /usr/share/nginx/html;' >> nginx.conf && echo '    index  index.html;' >> nginx.conf && echo '  }' >> nginx.conf && echo '}' >> nginx.conf && echo 'name: Developer Portal Deployment to heroku.\n# Run workflow on every push to master branch.\non: [push]\n# Your workflows job.\njobs:\n  Portal-run:\n    runs-on: ubuntu-22.04\n    steps:\n      - name: Checkout\n        uses: actions/checkout@v2\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      # Check-out your repository.\n      - name: Checkout\n        uses: actions/checkout@v2\n      ###  IMPORTANT PART  ###\n      - name: Build, Push and Release a Docker container to Heroku.\n        uses: gonuit/heroku-docker-deploy@v1.3.3\n        with:\n          email: ${{ secrets.HEROKU_EMAIL }}\n          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}\n          heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}\n          dockerfile_directory: ./\n          dockerfile_name: Dockerfile\n          docker_options: '--no-cache'\n          process_type: web' > .github/workflows/main.yaml",
-    "precreate": "touch Dockerfile && touch nginx.conf && npm run create"
+    "precreate": "touch Dockerfile && touch nginx.conf"
   },
   "author": "smartin",
   "license": "MIT",
-  "devDependencies": {
-
-  }
+  "devDependencies": {}
 }
