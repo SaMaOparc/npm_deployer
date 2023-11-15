@@ -1,7 +1,7 @@
 ######          DEPLOYER2000           ######
 
 
-This npm Package create with the install cmd a Structure for Heroku deploy
+This npm Package create with the install cmd a Structure for Heroku deploy (includes dockerize)
 
 1. "npm run deployer2000"
 2. Dockerfile, nginx.conf and yaml.main will create + @angular/cli change to a compability Version to dockerize node version
