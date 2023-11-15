@@ -9,6 +9,7 @@
   },
   "author": "smartin",
   "license": "MIT",
+  "url": "https://github.com/Skydiver86/npm_deployer",
   "keywords": ["heroku_deploy","dockerized_heroku_deploy"],
   "devDependencies": {
 
