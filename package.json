@@ -1,6 +1,6 @@
 {
   "name": "deployer2000",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "scripts": {
     "main": "creator.js",
     "create": "touch Dockerfile && touch nginx.conf && mkdir .github && mkdir .github/workflows && touch .github/workflows/main.yaml && node creator.js",
@@ -9,8 +9,10 @@
   },
   "author": "smartin",
   "license": "MIT",
-  "url": "https://github.com/Skydiver86/npm_deployer/tree/dev",
   "keywords": ["heroku_deploy","dockerized_heroku_deploy"],
+  "repository":{
+    "type": "git",
+    "url": "https://github.com/Skydiver86/npm_deployer/tree/dev"},
   "devDependencies": {
 
   }
