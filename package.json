@@ -1,6 +1,6 @@
 {
   "name": "deployer2000",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "scripts": {
     "main": "creator.js",
     "create": "touch Dockerfile && touch nginx.conf && mkdir .github && mkdir .github/workflows && touch .github/workflows/main.yaml && node creator.js",
